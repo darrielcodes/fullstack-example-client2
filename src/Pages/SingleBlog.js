@@ -27,9 +27,19 @@ const SingleBlog = (props) => {
 			<p>{singleBlog.title}</p>
             <p>{singleBlog.id}</p>
 			<p>{singleBlog.text}</p>
-            <input type="text" onChange={(e) => {
+			<label>Current ID: </label>
+            <input value={id} type="text" onChange={(e) => {
                 setId(e.target.value)
             }}/>
+			<br/>
+			<select onChange={(e) => {
+				setId(e.target.value)
+			}}>
+				<option></option>
+				{props.blogs.map((blog, index) => {
+					return <option key={index}>{blog.id}</option>
+				})}
+			</select>
 			<hr/>
 		</div>
 	)
